@@ -21,7 +21,7 @@ public class Score {
 		this.value = value;
 	}
 
-	public void setMovie(Movie movie) {
+	public void setMovie(Movie movie) { 
 		id.setMovie(movie);
 	}
 	
