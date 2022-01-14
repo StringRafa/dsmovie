@@ -1,4 +1,5 @@
 import axios from "axios";
+import Footer from "components/footer";
 import MovieCard from "components/MovieCard";
 import Pagination from "components/Pagination";
 import { useEffect, useState } from "react";
@@ -47,6 +48,7 @@ function Listing() {
                     )}
                 </div>
             </div>
+            <Footer / >
         </>
 
     );
