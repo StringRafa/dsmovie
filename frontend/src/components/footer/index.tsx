@@ -11,7 +11,7 @@ function Footer() {
                 <a href="https://www.instagram.com/dev.rafa.souza/">
 
                     <InstaIcon />
-                    <p className='dsmovie-contact-link'>dev.rafa.souza</p>
+                    <p className='dsmovie-contact-link'>@dev.rafa.souza</p>
 
                 </a>
             </div>
