@@ -2,7 +2,7 @@ import axios, { AxiosRequestConfig } from 'axios';
 import { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Movie } from 'types/movie';
-import { BASE_URL } from 'utils/requests';
+import { BASE_EMAIL_URL, BASE_URL } from 'utils/requests';
 import { validateEmail } from 'utils/validate';
 import './styles.css';
 
@@ -12,6 +12,8 @@ type Props = {
 
 function FormCard({ movieId }: Props) {
 
+
+    
     const navigate = useNavigate();
 
     const [movie, setMovie] = useState<Movie>();
@@ -30,6 +32,8 @@ function FormCard({ movieId }: Props) {
         const email = (event.target as any).email.value;
         const score = (event.target as any).score.value;
 
+        console.log(email);
+
         if (!validateEmail(email)) {
             return;
         }
@@ -45,7 +49,22 @@ function FormCard({ movieId }: Props) {
             }
         }
 
+        const config2: AxiosRequestConfig = {
+            baseURL: BASE_EMAIL_URL,
+            method: 'POST',
+            url: '/sending-email',
+            data: {
+                emailTo: email
+            }
+            
+            
+        }
+
         axios(config).then(response => {
+            navigate("/");
+        });
+
+        axios(config2).then(response => {
             navigate("/");
         });
     }
